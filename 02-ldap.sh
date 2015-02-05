@@ -25,3 +25,5 @@ sudo tee -a /etc/ssh/sshd_config > /dev/null <<EOF
 Match User jarcher,lafferty,vvora,yjchoe # LSDASETUP
     PasswordAuthentication yes # LSDASETUP
 EOF
+
+sudo /etc/init.d/ssh restart
