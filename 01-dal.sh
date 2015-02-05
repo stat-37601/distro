@@ -7,8 +7,9 @@ if ! which s3fs; then
 
   # Fetch dependencies.
   if which apt-get; then # Ubuntu Linux.
-    sudo apt-get install build-essential git libfuse-dev libcurl4-openssl-dev \
-                         libxml2-dev mime-support automake libtool pkg-config libssl-dev
+    sudo apt-get install -y build-essential git libfuse-dev libcurl4-openssl-dev \
+                            libxml2-dev mime-support automake libtool pkg-config \
+                            libssl-dev
   else # Amazon/Red Hat/CentOS Linux.
     sudo yum install -y gcc libstdc++-devel gcc-c++ fuse fuse-devel curl-devel \
                         libxml2-devel mailcap automake openssl-devel mailcap
