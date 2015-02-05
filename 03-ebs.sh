@@ -13,6 +13,8 @@ sudo tee -a /etc/fstab <<EOF
 EOF
 
 # Mount the volume as /home.
-if mount | grep -v /dev/xvdb; then
+if mount | grep /dev/xvdb; then
+	# Already set up!
+else
 	sudo mount -a
 fi
