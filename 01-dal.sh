@@ -24,5 +24,5 @@ if ! which s3fs; then
 fi
 
 # Mount data from S3 into /s3.
-mkdir -p /s3/stat-37601
-s3fs -o public_bucket=1 -o allow_other /s3/stat-37601
+sudo mkdir -p /s3/stat-37601
+sudo s3fs -o public_bucket=1 -o allow_other stat-37601 /s3/stat-37601
