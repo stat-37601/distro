@@ -9,6 +9,11 @@ sudo yum -y install python27 python27-pip python27-devel aws-cli
 sudo pip-2.7 install -U ipython pyzmq jinja2 tornado backports.ssl_match_hostname jsonschema
 touch /usr/lib/python2.7/site-packages/backports/__init__.py
 
+# Wait until configured.
+while [ -f ./spark-ec2/ec2-variables.sh ]; then
+  sleep 1
+done
+
 # Set up local environment variables.
 . ./spark-ec2/ec2-variables.sh
 
