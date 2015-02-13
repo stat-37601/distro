@@ -10,8 +10,8 @@ sudo pip-2.7 install -U ipython pyzmq jinja2 tornado backports.ssl_match_hostnam
 touch /usr/lib/python2.7/site-packages/backports/__init__.py
 
 # Wait until configured.
-while [ -f ./spark-ec2/ec2-variables.sh ]; then
-  sleep 1
+while [ ! -f ./spark-ec2/ec2-variables.sh ]; then
+  sleep 5
 done
 
 # Set up local environment variables.
