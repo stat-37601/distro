@@ -4,6 +4,10 @@
 # Author: Jeremy Archer (open-source@fatlotus.com)
 # Date: 12 February 2015
 
+# Change the next line ->             vvvvvv
+export BACKUP_BUCKET="s3://stat-37601-CNETID"
+#                                     ^^^^^^
+
 # Install prerequisites.
 sudo yum -y install python27 python27-pip python27-devel aws-cli
 sudo pip-2.7 install -U ipython pyzmq jinja2 tornado backports.ssl_match_hostname jsonschema
@@ -20,7 +24,6 @@ done
 export PYSPARK_PYTHON="$(which python27)"
 export IPYTHON_OPTS="notebook --ip=0.0.0.0 --port=8081"
 export MASTER="spark://0.0.0.0:8081"
-export BACKUP_BUCKET="s3://stat-37601-jarcher"
 
 # Ensure that we are the master instance.
 export MY_ADDRESS=$(curl http://169.254.169.254/latest/meta-data/public-hostname)
