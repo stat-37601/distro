@@ -44,5 +44,5 @@ updater(){
 updater &
 
 # Run IPython + PySpark.
-../spark/bin/pyspark
+../spark/bin/pyspark &
 
