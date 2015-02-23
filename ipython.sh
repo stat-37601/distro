@@ -40,9 +40,9 @@ mkdir -p notebooks/
 cd notebooks/
 
 updater(){
-  aws s3 sync $BACKUP_BUCKET .
+  aws s3 sync $BACKUP_BUCKET || true
   while nc -w 1 127.0.0.1 8081; do
-    aws s3 sync --exclude ".*" . $BACKUP_BUCKET || true
+    aws s3 sync --exclude '.*' . $BACKUP_BUCKET || true
     sleep 10
   done
 }
@@ -50,5 +50,7 @@ updater(){
 updater &
 
 # Run IPython + PySpark.
-../spark/bin/pyspark &
-
+while true; do
+  ../spark/bin/pyspark
+  sleep 5
+done
