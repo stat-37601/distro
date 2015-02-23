@@ -40,7 +40,12 @@ mkdir -p notebooks/
 cd notebooks/
 
 updater(){
-  aws s3 sync $BACKUP_BUCKET || true
+  # Download existing code from S3.
+  for i in 1 2 3; do
+    aws s3 sync $BACKUP_BUCKET . && break || sleep 5
+  done
+  
+  # Upload changes back to S3.
   while nc -w 1 127.0.0.1 8081; do
     aws s3 sync --exclude '.*' . $BACKUP_BUCKET || true
     sleep 10
