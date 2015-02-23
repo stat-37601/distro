@@ -56,6 +56,6 @@ updater &
 
 # Run IPython + PySpark.
 while true; do
-  ../spark/bin/pyspark || true
+  ~/spark/bin/pyspark || true
   sleep 5
 done
