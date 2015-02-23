@@ -26,7 +26,7 @@ done
 
 export PYSPARK_PYTHON="$(which python27)"
 export IPYTHON_OPTS="notebook --ip=0.0.0.0 --port=8081"
-export MASTER="spark://0.0.0.0:8081"
+export MASTER="spark://0.0.0.0:7077"
 
 # Ensure that we are the master instance.
 export MY_ADDRESS=$(curl http://169.254.169.254/latest/meta-data/public-hostname)
