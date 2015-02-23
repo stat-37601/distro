@@ -17,12 +17,12 @@ pip-2.7 install -U ipython pyzmq jinja2 tornado backports.ssl_match_hostname jso
 touch /usr/lib/python2.7/site-packages/backports/__init__.py
 
 # Wait until configured.
-while [ ! -f ./spark-ec2/ec2-variables.sh ]; do
+while [ ! -f ~/spark-ec2/ec2-variables.sh ]; do
   sleep 5
 done
 
 # Set up local environment variables.
-. ./spark-ec2/ec2-variables.sh
+. ~/spark-ec2/ec2-variables.sh
 
 export PYSPARK_PYTHON="$(which python27)"
 export IPYTHON_OPTS="notebook --ip=0.0.0.0 --port=8081"
