@@ -41,7 +41,7 @@ cd notebooks/
 
 updater(){
   # Download existing code from S3.
-  for i in 1 2 3; do
+  while true; do
     aws s3 sync $BACKUP_BUCKET . && break || sleep 5
   done
   
@@ -56,6 +56,6 @@ updater &
 
 # Run IPython + PySpark.
 while true; do
-  ../spark/bin/pyspark
+  ../spark/bin/pyspark || true
   sleep 5
 done
