@@ -13,7 +13,7 @@ exec > >(tee /var/log/user-data.log|logger -t user-data -s 2>/dev/console) 2>&1
 
 # Install prerequisites.
 yum -y install python27 python27-pip python27-devel aws-cli
-pip-2.7 install -U ipython pyzmq jinja2 tornado backports.ssl_match_hostname jsonschema
+pip-2.7 install -U ipython pyzmq jinja2 tornado backports.ssl_match_hostname jsonschema terminado
 touch /usr/lib/python2.7/site-packages/backports/__init__.py
 
 # Wait until configured.
