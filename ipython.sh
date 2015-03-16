@@ -12,8 +12,10 @@ export BACKUP_BUCKET="s3://stat-37601-CNETID"
 exec > >(tee /var/log/user-data.log|logger -t user-data -s 2>/dev/console) 2>&1
 
 # Install prerequisites.
-yum -y install python27 python27-pip python27-devel aws-cli
-pip-2.7 install -U ipython pyzmq jinja2 tornado backports.ssl_match_hostname jsonschema terminado numpy scipy matplotlib
+yum -y install python27 python27-pip python27-devel aws-cli \
+  gcc-c++ python27-devel atlas-sse3-devel lapack-devel gcc-gfortran
+pip-2.7 install -U ipython pyzmq jinja2 tornado backports.ssl_match_hostname \
+  jsonschema terminado numpy scipy
 touch /usr/lib/python2.7/site-packages/backports/__init__.py
 
 # Wait until configured.
