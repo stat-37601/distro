@@ -33,6 +33,8 @@ export MASTER="spark://0.0.0.0:7077"
 # Ensure that we are the master instance.
 export MY_ADDRESS=$(curl http://169.254.169.254/latest/meta-data/public-hostname)
 
+(sleep 7200 && shutdown -h now) &
+
 if [ "$MY_ADDRESS" != "$MASTERS" ]; then
   exit 1
 fi
